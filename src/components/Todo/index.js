@@ -22,11 +22,11 @@ function Todo() {
 
   const [filterTasks, setFilterTasks] = useState('All');
 
-  let filteredTasks = tasks.filter((task) => {
+  let allTasks = tasks.filter((task) => {
     if (filterTasks === 'All') {
       return task;
     } else if (filterTasks === 'Active') {
-      return task.isChecked === false
+      return task.isChecked === false;
     } else {
       return task.isChecked === true;
     }
@@ -50,8 +50,8 @@ function Todo() {
   return (
     <div>
         <Header addTasks={addTasks} tasks={tasks}/>
-        <List tasks={filteredTasks} deleteSelected={deleteSelected}/>
-        <Footer tasks={tasks} filteredTasks={clickedBtn} filter={filteredTasks}  clearCompleted={deleteCompleted}/>
+        <List tasks={allTasks} deleteSelected={deleteSelected}/>
+        <Footer tasks={tasks} allTasks={clickedBtn} filter={allTasks}  clearCompleted={deleteCompleted}/>
     </div>
   )
 }
